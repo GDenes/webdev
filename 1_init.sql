@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS restaurants (
 );
 CREATE TABLE IF NOT EXISTS reviews (
     id BIGSERIAL not null PRIMARY KEY,
-    restaurant_id BIGINT not null references restaurants(id),
+    restaurant_id BIGINT not null references restaurants(id) ON DELETE CASCADE,
     name VARCHAR(50) not null,
     review TEXT not null,
     rating INT not null check(rating >=1 and rating <=5)

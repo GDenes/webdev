@@ -17,7 +17,7 @@ services:
 
   backend:
     build: ./server
-    container_name: express-backend
+    container_name: backend
     ports:
       - 3006:3006
     environment: 
@@ -26,6 +26,7 @@ services:
       PGPASSWORD: webdevPassword
       PGDATABASE: webdev
       PGPORT: 5432
+      PORT: 3006
     depends_on:
       - db
     networks:
@@ -52,3 +53,5 @@ services:
     restart: always
     ports:
       - 9090:8080
+    networks:
+      - webdev-network
